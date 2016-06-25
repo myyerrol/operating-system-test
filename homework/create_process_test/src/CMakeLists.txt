@@ -1,0 +1,2 @@
+add_executable(create_single_process create_single_process.c)
+add_executable(create_multi_process  create_multi_process.c)
