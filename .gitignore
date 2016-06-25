@@ -30,3 +30,7 @@
 
 # Debug files
 *.dSYM/
+
+# Build and bin
+/homework/create_process_test/build
+/homework/create_process_test/bin
