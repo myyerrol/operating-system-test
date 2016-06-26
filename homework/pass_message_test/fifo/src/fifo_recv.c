@@ -6,7 +6,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/unistd.h>
-#include "fifo_recv.h"
+#include "fifo.h"
 #include "file_manager/src/file_manager.h"
 #include "time_counter/src/time_counter.h"
 #include "input_output/src/input_output.h"
