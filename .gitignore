@@ -31,8 +31,12 @@
 # Debug files
 *.dSYM/
 
+# Qt cmake
+*.user
+
 # Build and bin
 /homework/create_process_test/build
 /homework/create_process_test/bin
 /homework/create_thread_test/build
 /homework/create_thread_test/bin
+/homework/pass_message_test/build
