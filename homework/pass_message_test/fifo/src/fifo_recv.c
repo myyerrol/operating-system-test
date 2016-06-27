@@ -32,6 +32,7 @@ int main(int argc, char **argv)
     printf("Waiting fifo sender.......\n");
     pipe_fd = open(FIFO_NAME, open_mode);
 
+    // Open the file, and type is write-read.
     if (!openWriteFile(&file_id, file_name)) {
         printf("Error, can not open file!\n");
         exit(EXIT_FAILURE);
@@ -46,7 +47,9 @@ int main(int argc, char **argv)
     startTimeCounter();
 
     do {
+        // Read data from fifo.
         read_bytes = read(pipe_fd, buffer, BUFFER_SIZE);
+        // Write data to file.
         if (writeFileData(buffer, file_id, read_bytes) < 0) {
             printf("Error, can not write!\n");
         }

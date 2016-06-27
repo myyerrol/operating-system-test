@@ -25,6 +25,7 @@ int main(int argc, char **argv)
         exit(EXIT_FAILURE);
     }
 
+    // Check fifo file exist wether or not.
     if (access(FIFO_NAME, F_OK) == -1) {
         if (mkfifo(FIFO_NAME, 0777) != 0) {
             printf("Error, can not create fifo!\n");
@@ -38,6 +39,7 @@ int main(int argc, char **argv)
     printf("Waiting fifo receiver.....\n");
     pipe_fd = open(FIFO_NAME, open_mode);
 
+    // Open the file, and type is read-only.
     if (!openReadFile(&file_id, file_name)) {
         printf("Error, can not open file!\n");
         exit(EXIT_FAILURE);
@@ -51,7 +53,9 @@ int main(int argc, char **argv)
     printf("Sending data......\n");
 
     do {
+        // Read data from file.
         read_bytes = readFileData(buffer, file_id, BUFFER_SIZE);
+        // Write data to fifo.
         if (write(pipe_fd, (char *)buffer, read_bytes) < 0) {
             printf("Error, can not write!\n");
         }
