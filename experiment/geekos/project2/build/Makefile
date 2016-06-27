@@ -321,6 +321,10 @@ depend : $(GENERATED_LIBC_SRCS)
 depend.mak :
 	touch $@
 
+# Run OS in bochs
+run :
+	bochs -q -f bochsrc
+
 # Debug OS in bochs
 debug :
 	@gnome-terminal -e "gdb -q -tui -x gdbinfo"
