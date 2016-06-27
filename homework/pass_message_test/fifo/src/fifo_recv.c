@@ -59,7 +59,7 @@ int main(int argc, char **argv)
     } while (read_bytes > 0);
 
     endTimeCounter();
-    printf("\nReceive bytes: %d\n", read_bytes_sum);
+    printf("\nReceiving data: %d bytes\n", read_bytes_sum);
     calculateTimeDuration();
     closeFile(file_id, file_name);
     return 0;

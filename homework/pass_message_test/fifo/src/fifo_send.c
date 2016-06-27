@@ -63,8 +63,7 @@ int main(int argc, char **argv)
         printData(read_bytes_sum / CONVERSION_UNIT);
     } while (read_bytes > 0);
 
-    printf("\nSend bytes: %d\n", read_bytes_sum);
-    printf("File size: %lld MB\n", getFileSize(file_name) / CONVERSION_UNIT);
+    printf("\nSending data: %d bytes\n", read_bytes_sum);
     closeFile(file_id, file_name);
     return 0;
 }
