@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include "time_counter.h"
 
-clock_t g_start_time;
-clock_t g_end_time;
+clock_t g_start_time = 0;
+clock_t g_end_time   = 0;
 
 void startTimeCounter(void)
 {
