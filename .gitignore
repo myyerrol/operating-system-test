@@ -34,6 +34,13 @@
 # Qt cmake
 *.user
 
+# GeekOS
+*.mak
+*.img
+*.bin
+*.syms
+errno.c
+
 # Build and bin
 /homework/create_process_test/build
 /homework/create_process_test/bin
