@@ -2,7 +2,7 @@
  * Common user mode functions
  * Copyright (c) 2001,2003,2004 David H. Hovemeyer <daveho@cs.umd.edu>
  * $Revision: 1.50 $
- * 
+ *
  * This is free software.  You are permitted to use,
  * redistribute, and modify it as specified in the file "COPYING".
  */
@@ -40,7 +40,7 @@ void Attach_User_Context(struct Kernel_Thread* kthread, struct User_Context* con
      * to share a user context (yet)
      */
 
-//   Print("User context refcount == %d %d\n", context->refCount, kthread->pid); 
+//   Print("User context refcount == %d %d\n", context->refCount, kthread->pid);
     KASSERT(context->refCount == 0);
 
     ++context->refCount;
@@ -111,7 +111,7 @@ int Spawn(const char *program, const char *command, struct Kernel_Thread **pThre
 	  {
 		Print("Reading %s...\n", program);
 	  }
-	
+
 	if (Read_Fully(program, (void**) &exeFileData, &exeFileLength) != 0)
 	  {
 		Print("Read_Fully failed to read %s from disk\n", program);
@@ -119,10 +119,10 @@ int Spawn(const char *program, const char *command, struct Kernel_Thread **pThre
 	  }
 
 	if (userdebug)
-	  {  
+	  {
 		Print("Read_Fully OK\n");
 	  }
-	
+
 	if (Parse_ELF_Executable(exeFileData, exeFileLength, &exeFormat) != 0)
 	  {
 		Print("Parse_ELF_Executable failed\n");
@@ -130,16 +130,16 @@ int Spawn(const char *program, const char *command, struct Kernel_Thread **pThre
 	  }
 
 	if (userdebug)
-    { 
+    {
       Print("Parse_ELF_Executable OK\n");
-    }	 
+    }
 
 	Load_User_Program(exeFileData, exeFileLength, &exeFormat, command,
     (struct User_Context **)&pUserContext);
 
 	*pThread = Start_User_Thread(pUserContext, false);
 
-	return (*pThread)->pid;   
+	return (*pThread)->pid;
     //TODO("Spawn a process by reading an executable from a filesystem");
 }
 
@@ -161,11 +161,10 @@ void Switch_To_User_Context(struct Kernel_Thread* kthread, struct Interrupt_Stat
      */
     if(kthread->userContext == NULL)
 		return;
-		
+
 	// very important
 	Set_Kernel_Stack_Pointer(((ulong_t)kthread->stackPage) + PAGE_SIZE);
 	//Print("Switch_To_User_Context %x\n", kthread->userContext->entryAddr);
 	Switch_To_Address_Space(kthread->userContext);
 
 }
-
