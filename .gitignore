@@ -39,6 +39,7 @@
 *.img
 *.bin
 *.syms
+*.out
 errno.c
 
 # Build and bin
