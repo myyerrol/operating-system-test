@@ -1,0 +1,3 @@
+file geekos/kernel.exe
+target remote :1234
+continue
